@@ -8,16 +8,18 @@ $password = $_GET['password'];
 $db = new PDO($mysql['dsn'], $mysql['user'], $mysql['password']);
 
 $result = $db->query("SELECT * FROM users WHERE username = '$username'");
+//$statement = $db->prepare("SELECT * FROM users WHERE username = ?");
+//$statement->bindValue(1, $username);
+//$statement->execute();
+//$result = $statement;
 
-$text = '<span class="text-danger">An error occurred!</span>';
+$text = '<span class="text-danger">Login failed!</span>';
 
 if ($result && $result->rowCount() == 1) {
     $user = $result->fetch();
 
     if ($password == $user['password']) {
         $text = '<span class="text-success">You are logged in as ' . $username . '!</span>';
-    } else {
-        $text = '<span class="text-warning">You entered the wrong credentials!</span>';
     }
 }
 
@@ -37,7 +39,7 @@ if ($result && $result->rowCount() == 1) {
     <script src="../resources/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container pt-5 text-center">
+    <div class="container pt-5 text-center h1">
         <?= $text ?>
     </div>
 </body>
