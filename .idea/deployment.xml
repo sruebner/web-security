@@ -5,7 +5,7 @@
       <paths name="Local MAMP">
         <serverdata>
           <mappings>
-            <mapping deploy="duckbook" local="$PROJECT_DIR$" web="/duckbook" />
+            <mapping deploy="web-security" local="$PROJECT_DIR$" web="/web-security" />
           </mappings>
         </serverdata>
       </paths>
