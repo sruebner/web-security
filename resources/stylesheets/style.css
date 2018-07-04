@@ -1,0 +1,43 @@
+/* colors */
+body {
+  font-family: sans-serif;
+  background: #f2f2f2;
+}
+header {
+  text-align: center;
+  font-size: 2em;
+  font-weight: lighter;
+  text-transform: uppercase;
+  background: #1b50b0;
+  color: white;
+  padding: 1em 0;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #2788d7;
+  font-size: 1.2em;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.45);
+}
+nav a:link,
+nav a:hover,
+nav a:focus,
+nav a:active,
+nav a:visited {
+  color: white;
+  text-decoration: none;
+  padding: 0.7em 0.8em 0.6em 0.8em;
+}
+nav a:hover {
+  background: #67aff6;
+}
+main {
+  width: 68rem;
+  margin: 2em auto;
+  padding: 1.5em;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #d5d5d5;
+}
+/*# sourceMappingURL=style.css.map */
