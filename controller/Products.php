@@ -20,15 +20,18 @@ class Products extends Controller
             $db = new PDO($mysql['dsn'], $mysql['user'], $mysql['password']);
 
             // select statement
-            $statement = $db->query('SELECT * FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
-            if ($statement->execute()) {
+            $statement = $db->query('SELECT name, description, image FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
+
+            if ($statement) {
                 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                 $template->assign('product-table', $this->getProductTable($products));
+                $statement->closeCursor();
             }
         }
     }
 
-    private function getProductTable(array $products) : string {
+    private function getProductTable(array $products): string
+    {
         $html = '';
 
         if (!empty($products)) {
@@ -60,7 +63,8 @@ class Products extends Controller
         return $html;
     }
 
-    private function getProductColumnName($column) : string {
+    private function getProductColumnName($column): string
+    {
         $names = [
             'name' => 'Produktname',
             'description' => 'Beschreibung',
