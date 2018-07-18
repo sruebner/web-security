@@ -40,4 +40,43 @@ main {
   background: white;
   border: 1px solid #d5d5d5;
 }
+.form {
+  text-align: center;
+}
+.form input[type="text"],
+.form input[type="password"] {
+  border-radius: 2em;
+  border: 1px solid #d5d5d5;
+  padding: 0.5em 1em;
+  width: 30rem;
+  box-shadow: inset 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+  margin: 0.2em 0;
+}
+.form button[type="submit"] {
+  border-radius: 2em;
+  border: none;
+  background: #2788d7;
+  color: white;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin: 0.2em 0;
+}
+.form button[type="submit"]:hover {
+  background: #67aff6;
+}
+.products {
+  width: 100%;
+  border-collapse: collapse;
+}
+.products th {
+  padding: 0.8em 1em 0.5em 1em;
+  font-size: 1.2em;
+  background: #a1d1f6;
+}
+.products td {
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #d5d5d5;
+  padding: 0.5em 1em;
+}
 /*# sourceMappingURL=style.css.map */

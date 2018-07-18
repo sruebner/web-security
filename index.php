@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+
+require_once 'config/config.php';
+require_once 'include/functions.php';
+
+?><!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -30,13 +35,13 @@
                 if (file_exists('pages' . DIRECTORY_SEPARATOR . $_GET['page'] . '.php')) {
                     include 'pages' . DIRECTORY_SEPARATOR . $_GET['page'] . '.php';
                 } else {
-                    echo '<h1>Page not found!</h1>';
+                    echo '<h1>Seite nicht gefunden!</h1>';
                 }
             } else {
                 if (file_exists('pages' . DIRECTORY_SEPARATOR . 'home.php')) {
                     include 'pages' . DIRECTORY_SEPARATOR . 'home.php';
                 } else {
-                    echo '<h1>Page not found!</h1>';
+                    echo '<h1>Seite nicht gefunden!</h1>';
                 }
             }
             ?>

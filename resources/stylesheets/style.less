@@ -1,4 +1,5 @@
 /* colors */
+@ultralight-blue: #a1d1f6;
 @light-blue: #67aff6;
 @blue: #2788d7;
 @dark-blue: #1b50b0;
@@ -48,4 +49,49 @@ main {
   box-sizing: border-box;
   background: white;
   border: 1px solid @dark-gray;
+}
+
+.form {
+  text-align: center;
+
+  input[type="text"], input[type="password"] {
+    border-radius: 2em;
+    border: 1px solid @dark-gray;
+    padding: 0.5em 1em;
+    width: 30rem;
+    box-shadow: inset 2px 2px 5px 0 rgba(0,0,0,0.1);
+    margin: 0.2em 0;
+  }
+
+  button[type="submit"] {
+    border-radius: 2em;
+    border: none;
+    background: @blue;
+    color: white;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin: 0.2em 0;
+
+    &:hover {
+      background: @light-blue;
+    }
+  }
+}
+
+.products {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    padding: 0.8em 1em 0.5em 1em;
+    font-size: 1.2em;
+    background: @ultralight-blue;
+  }
+
+  td {
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: @dark-gray;
+    padding: 0.5em 1em;
+  }
 }
