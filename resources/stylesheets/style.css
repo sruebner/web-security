@@ -67,6 +67,7 @@ main {
 .products {
   width: 100%;
   border-collapse: collapse;
+  border: 2px solid #a1d1f6;
 }
 .products th {
   padding: 0.8em 1em 0.5em 1em;
@@ -74,9 +75,9 @@ main {
   background: #a1d1f6;
 }
 .products td {
-  border-width: 1px 0;
+  border-width: 2px 0;
   border-style: solid;
-  border-color: #d5d5d5;
+  border-color: #a1d1f6;
   padding: 0.5em 1em;
 }
 /*# sourceMappingURL=style.css.map */

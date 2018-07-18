@@ -1,0 +1,14 @@
+{# header #}
+
+{! IF (product-table) !}
+    {% product-table %}
+{! ELSE !}
+    <div class="form">
+        <form method="post" action="index.php?page=products">
+            <input type="text" name="search_query">
+            <button type="submit" name="search_submit">Suchen</button>
+        </form>
+    </div>
+{! ENDIF !}
+
+{# footer #}
