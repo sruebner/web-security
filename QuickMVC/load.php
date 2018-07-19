@@ -1,8 +1,8 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    $prefix = 'QuickTemplates\\';
-    $controllerPrefix = 'QuickTemplates\\Controller\\';
+    $prefix = 'QuickMVC\\';
+    $controllerPrefix = 'QuickMVC\\Controller\\';
     $prefixLength = strlen($prefix);
     $controllerPrefixLength = strlen($controllerPrefix);
     $baseDir = __DIR__ . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR;

@@ -1,31 +1,27 @@
 <?php
 
-namespace QuickTemplates\Controller;
+namespace QuickMVC\Controller;
 
 
-use QuickTemplates\Controller;
-use QuickTemplates\Template;
+use QuickMVC\Controller;
+use QuickMVC\Template;
 use PDO;
+use Database;
 
 class Products extends Controller
 {
     public function handle(Template $template)
     {
-        global $mysql;
-
         // if a search query was entered
         if (!empty($_POST['search_query'])) {
+            $db = Database::getConnection();
 
-            // create db connection
-            $db = new PDO($mysql['dsn'], $mysql['user'], $mysql['password']);
+            $result = $db->query('SELECT name, description, image FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
 
-            // select statement
-            $statement = $db->query('SELECT name, description, image FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
-
-            if ($statement) {
-                $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+            if ($result) {
+                $products = $result->fetchAll(PDO::FETCH_ASSOC);
                 $template->assign('product-table', $this->getProductTable($products));
-                $statement->closeCursor();
+                $result->closeCursor();
             }
         }
     }

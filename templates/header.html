@@ -15,13 +15,10 @@
         <nav>
             <a href="index.php?page=home">Startseite</a>
             <a href="index.php?page=products">Produktsuche</a>
-            <?php
-            // change to if logged in
-            if (false) {
-                echo '<a href="index.php?page=profile">Benutzerprofil</a> <a href="index.php?page=logout">Abmelden</a>';
-            } else {
-            echo '<a href="index.php?page=login">Anmelden</a>';
-            }
-            ?>
+            {! IF (username) !}
+                <a href="index.php?page=profile">Benutzerprofil</a> <a href="index.php?page=logout">Abmelden</a>
+            {! ELSE !}
+                <a href="index.php?page=login">Anmelden</a>
+            {! ENDIF !}
         </nav>
         <main>

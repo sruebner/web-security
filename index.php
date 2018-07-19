@@ -1,11 +1,8 @@
 <?php
 
-use \QuickTemplates\Template;
+use QuickMVC\Template;
 
-require_once 'config/config.php';
-require_once 'include/functions.php';
-require_once 'QuickTemplates/load.php';
-
+require_once 'include/setup.php';
 
 if (!empty($_GET['page'])) {
     $template = new Template($_GET['page']);

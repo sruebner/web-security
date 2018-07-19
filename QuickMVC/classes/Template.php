@@ -1,6 +1,6 @@
 <?php
 
-namespace QuickTemplates;
+namespace QuickMVC;
 
 
 class Template
@@ -39,24 +39,28 @@ class Template
 
     public function display() {
         // use controller
-        $controllerClassName = '\\QuickTemplates\\Controller\\' . ucfirst($this->template);
+        $controllerClassName = '\\QuickMVC\\Controller\\' . ucfirst($this->template);
         if (class_exists($controllerClassName)) {
             $controller = new $controllerClassName;
-            if ($controller instanceof Controller) {
-                $controller->handle($this);
-            }
+        } else {
+            $controller = new GeneralController();
+        }
+        if ($controller instanceof Controller) {
+            $controller->handle($this);
         }
 
         $templateFile = self::TEMPLATE_DIR . $this->template . self::TEMPLATE_EXT;
         $compiledFile = self::COMPILED_DIR . $this->template . self::COMPILED_EXT;
 
         if (file_exists($compiledFile) && file_exists($templateFile) && filemtime($compiledFile) >= filemtime($templateFile)) {
+            // import compiled template
             $this->import();
         } else if (file_exists($templateFile)) {
+            // read template
             $templateText = file_get_contents($templateFile);
 
             // replace variables
-            $templateText = preg_replace(self::VAR_MASK, '<?php $this->getVariable(\'$1\', \'<!-- Variable \\\'$1\\\' nicht gefunden -->\'); ?>', $templateText);
+            $templateText = preg_replace(self::VAR_MASK, '<?php echo $this->getVariable(\'$1\', \'<!-- Variable \\\'$1\\\' nicht gefunden -->\'); ?>', $templateText);
 
             // replace conditions
             $templateText = preg_replace(self::IF_MASK, '<?php if ($this->getVariable(\'$1\')) { ?>', $templateText);
@@ -86,6 +90,12 @@ class Template
     }
 
     public function getVariable($variable, $default = '') {
-        return array_key_exists($variable, $this->variables) ? $this->variables[$variable] : $default;
+        $value = $default;
+        if (array_key_exists($variable, $this->variables)) {
+            $value = $this->variables[$variable];
+        } else if (array_key_exists($variable, $_SESSION) && !is_array($_SESSION[$variable]) && !is_object($_SESSION[$variable])) {
+            $value = $_SESSION[$variable];
+        }
+        return $value;
     }
 }
