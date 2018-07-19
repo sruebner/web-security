@@ -3,8 +3,7 @@
 namespace QuickMVC;
 
 
-class Template
-{
+class Template {
     public const TEMPLATE_DIR = 'templates' . DIRECTORY_SEPARATOR;
     public const COMPILED_DIR = 'templates' . DIRECTORY_SEPARATOR . 'compiled' . DIRECTORY_SEPARATOR;
     public const TEMPLATE_EXT = '.html';
@@ -24,16 +23,15 @@ class Template
         $transcludedTemplate->display();
     }
 
-    public function __construct(string $template)
-    {
+    public function __construct(string $template) {
         $this->template = $template;
     }
 
-    public function assign(string $variable, $value) : void {
+    public function assign(string $variable, $value): void {
         $this->variables[$variable] = $value;
     }
 
-    public function assignAll(array $variables) : void {
+    public function assignAll(array $variables): void {
         $this->variables += $variables;
     }
 
