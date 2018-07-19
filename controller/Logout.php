@@ -2,7 +2,6 @@
 
 namespace QuickMVC\Controller;
 
-use Database;
 use QuickMVC\Controller;
 use QuickMVC\Template;
 
