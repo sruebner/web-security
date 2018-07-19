@@ -16,7 +16,7 @@ class Products extends Controller
         if (!empty($_POST['search_query'])) {
             $db = Database::getConnection();
 
-            $result = $db->query('SELECT name, description, image FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
+            $result = $db->query('SELECT name, description, price FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
 
             if ($result) {
                 $products = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -45,7 +45,12 @@ class Products extends Controller
                 $html .= '<tr>';
                 foreach ($product as $key => $column) {
                     if ($key != 'id') {
-                        $html .= '<td>' . $column . '</td>';
+                        if ($key == 'price') {
+                            $html .= '<td>' . number_format($column / 100.0, 2, ',', '.') . '€</td>';
+                        } else {
+                            $html .= '<td>' . $column . '</td>';
+                        }
+
                     }
                 }
                 $html .= '</tr>';
@@ -64,7 +69,7 @@ class Products extends Controller
         $names = [
             'name' => 'Produktname',
             'description' => 'Beschreibung',
-            'image' => 'Bild'
+            'price' => 'Preis'
         ];
 
         return array_key_exists($column, $names) ? $names[$column] : $column;
