@@ -16,7 +16,7 @@ class Guestbook extends Controller {
 
         $entries = Database::query('SELECT * FROM guestbook ORDER BY date DESC LIMIT 10;');
 
-        $template->assign('guestbook-entries',$this->getEntrieTable($entries));
+        $template->assign('guestbook-entries', $this->getEntrieTable($entries));
     }
 
     private function getEntrieTable(array $entries): string {

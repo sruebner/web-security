@@ -1,6 +1,8 @@
 {# header #}
 
+{! IF (username) !}
 <h1>Willkommen, {% username %}!</h1>
 <p>Sie sind aktuell angemeldet.</p>
-
+<p><a class="danger" href="index.php?page=delete">Account löschen</a></p>
+{! ENDIF !}
 {# footer #}
