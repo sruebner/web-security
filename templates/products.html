@@ -1,8 +1,10 @@
 {# header #}
 
 {! IF (product-table) !}
+    <h1>Suchergebnisse</h1>
     {% product-table %}
 {! ELSE !}
+    <h1>Produktsuche</h1>
     <div class="form">
         <form method="post" action="index.php?page=products">
             <input type="text" name="search_query">

@@ -4,6 +4,7 @@
     <h1>Sie wurden als {% username %} angemeldet.</h1>
 {! ELSE !}
     {! IF (show-form) !}
+        <h1>Anmelden</h1>
         <div class="form">
             <form method="post" action="index.php?page=login">
                 Benutzername <input type="text" name="username"><br>

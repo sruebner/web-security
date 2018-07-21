@@ -1,0 +1,15 @@
+{# header #}
+
+<h1>Gästebuch</h1>
+
+<div class="form">
+    <form method="post" action="index.php?page=guestbook">
+        Name <input type="text" name="name"><br>
+        Text <input type="text" name="text"><br>
+        <button type="submit" name="login_submit">Eintrag verfassen</button>
+    </form>
+</div>
+
+{% guestbook-entries %}
+
+{# footer #}

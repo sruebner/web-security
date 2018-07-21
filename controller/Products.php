@@ -14,14 +14,10 @@ class Products extends Controller
     {
         // if a search query was entered
         if (!empty($_POST['search_query'])) {
-            $db = Database::getConnection();
-
-            $result = $db->query('SELECT name, description, price FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
+            $result = Database::query('SELECT name, description, price FROM products WHERE name LIKE \'%' . $_POST['search_query'] . '%\';');
 
             if ($result) {
-                $products = $result->fetchAll(PDO::FETCH_ASSOC);
-                $template->assign('product-table', $this->getProductTable($products));
-                $result->closeCursor();
+                $template->assign('product-table', $this->getProductTable($result));
             }
         }
     }

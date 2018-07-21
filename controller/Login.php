@@ -25,14 +25,11 @@ class Login extends Controller {
     }
 
     private function checkLogin(string $username, string $password): bool {
-        $db = Database::getConnection();
 
-        $result = $db->query('SELECT password FROM users WHERE username = \'' . $username . '\';');
+        $result = Database::query('SELECT password FROM users WHERE username = \'' . $username . '\';');
 
         if ($result) {
-            $pwHash = $result->fetch(PDO::FETCH_ASSOC);
-            $result->closeCursor();
-            return password_verify($password, $pwHash['password']);
+            return password_verify($password, $result[0]['password']);
         } else {
             return false;
         }

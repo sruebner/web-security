@@ -43,8 +43,9 @@ main {
   text-align: center;
 }
 .form input[type="text"],
-.form input[type="password"] {
-  border-radius: 2em;
+.form input[type="password"],
+.form textarea {
+  border-radius: 0.5em;
   border: 1px solid #d5d5d5;
   padding: 0.5em 1em;
   width: 30rem;
@@ -52,7 +53,7 @@ main {
   margin: 0.2em 0;
 }
 .form button[type="submit"] {
-  border-radius: 2em;
+  border-radius: 0.5em;
   border: none;
   background: #2788d7;
   color: white;
