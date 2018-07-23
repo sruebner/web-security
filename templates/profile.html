@@ -2,7 +2,7 @@
 
 {! IF (username) !}
 <h1>Willkommen, {% username %}!</h1>
-<p>Sie sind aktuell angemeldet.</p>
+<p>Sie sind aktuell angemeldet.{! IF (is-admin) !} Sie sind Administrator.{! ENDIF !}</p>
 <p><a class="danger" href="index.php?page=delete">Account löschen</a></p>
 {! ENDIF !}
 {# footer #}
