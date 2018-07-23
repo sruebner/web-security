@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Erstellungszeit: 22. Jul 2018 um 23:14
+-- Erstellungszeit: 23. Jul 2018 um 07:23
 -- Server-Version: 5.6.38
 -- PHP-Version: 7.2.1
 
@@ -52,7 +52,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`) VALUES
-  (1, 'Tisch', 'Formschöner Tisch mit ganzen vier Beinen und einer Tischplatte. Super zum servieren von Essen oder Lesen von Zeitung.', 9999);
+  (1, 'Tisch SJÄLLAND', 'Die Tischplatte besteht aus Eukalyptusholz und sorgt für aromatische Entspannung bei Frühstück, Mittag- und Abendessen.', 17900),
+  (2, 'Tisch LACK', 'Praktisch, klein und günstig. Der Tisch für jeden Zweck.', 599),
+  (3, 'Tisch INGO', 'Der Tisch ist aus massiver Kiefer, einem Naturmaterial, das in Würde altert.', 5900),
+  (4, 'Schrank PAX', 'Außen schick und innen praktisch. Diese Regalkombination ist für jeden was.', 39100),
+  (5, 'Regal KALLAX', 'Flexibel, quadratisch, praktisch, gut! Das Kallax Regal lässt sich stellen oder legen und passt so gut in jeden Raum.', 5900),
+  (6, 'Regal BILLY', 'Billy ist der ewig moderne Favorit unter den Regalen.', 5900);
 
 -- --------------------------------------------------------
 
@@ -83,7 +88,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `is_admin`) VALUES
-  ('', '', 0),
   ('admin', '$2y$10$MlMCmvDpeujjiFVjxqmw3uG4xSACUqesbooyHjaotnCkvWi0.Ribm', 1),
   ('Judy', '$2y$10$qdC9LroYzH0omCVtBmPZquq3AiCZlCYXRdAMRPmAThBLxJTkrSVK.', 0),
   ('Max', '$2y$10$mRCNrmcF/vyWQql6UIdHGuApolIQOhqNjMA6.EPtCI5IZqXndJ8na', 0);
@@ -124,10 +128,10 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `guestbook`
 --
 ALTER TABLE `guestbook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

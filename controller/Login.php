@@ -3,7 +3,6 @@
 namespace QuickMVC\Controller;
 
 use Database;
-use PDO;
 use QuickMVC\Controller;
 use QuickMVC\Template;
 
